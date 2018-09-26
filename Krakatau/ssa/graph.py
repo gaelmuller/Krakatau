@@ -501,7 +501,7 @@ class SSA_Graph(object):
         #the new proc is appended to the list of procs so it can work properly
         #with the stack processing in inlineSubprocs
         assert(len(proc.jsrblocks) > 1)
-        target, retblock = proc.target, proc.retblock
+        retblock = proc.retblock
         region = self._region(proc)
 
         split_jsrs = [proc.jsrblocks.pop()]
@@ -517,6 +517,7 @@ class SSA_Graph(object):
 
     def _inlineSubProc(self, proc):
         #Inline a proc with single callsite inplace
+        test = 1
         assert(len(proc.jsrblocks) == 1)
         target, retblock = proc.target, proc.retblock
         region = self._region(proc)
